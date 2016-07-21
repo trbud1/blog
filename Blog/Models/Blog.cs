@@ -10,12 +10,20 @@ namespace Blog.Models
     {
         [Key]
         public int ID { get; set; }
+
         [Display(Name = "Blog Title")]
+        [StringLength(254, MinimumLength = 3)]
         public string Title { get; set;}
+
         [Display(Name = "Blog Message")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [Required]
+        [StringLength(254)]
         public string Message { get; set; }
+
         [Display(Name ="Time to read (in minutes)")]
         public int TimeToRead { get; set; }
+
         public float Rating { get; set; }
 
         [Display(Name = "Date of Blog")]
