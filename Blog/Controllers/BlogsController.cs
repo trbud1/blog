@@ -75,7 +75,7 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Message,TimeToRead,Rating")] Post blog)
+        public ActionResult Create([Bind(Include = "ID,Title,Message,TimeToRead,Rating, PublishedDate")] Post blog)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Message,TimeToRead,Rating")] Post blog)
+        public ActionResult Edit([Bind(Include = "ID,Title,Message,TimeToRead,Rating, PublishedDate")] Post blog)
         {
             if (ModelState.IsValid)
             {

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
@@ -15,9 +16,12 @@ namespace Blog.Models
         public string Message { get; set; }
         [Display(Name ="Time to read (in minutes)")]
         public int TimeToRead { get; set; }
-
-
         public float Rating { get; set; }
+
+        [Display(Name = "Date of Blog")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime PublishedDate { get; set; }
     }
 
     public class BlogDBContext : DbContext
