@@ -111,6 +111,7 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
+                blog.PublishedDate = DateTime.Now;
                 db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

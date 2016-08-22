@@ -3,7 +3,28 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .myHeading{
+            padding:10px;
+            color:aliceblue;
+            background-color: #BABABA;
+            border-radius: 30px 30px 0 0;
+        }
 
+        .MyBody{
+            
+        }
+
+        .blogBody{
+            background-color: #F8F8F8;
+            border-radius: 30px;
+            box-shadow:inset;
+
+        }
+    </style>
+</head>
 <h2>Index</h2>
 
 <p>
@@ -18,9 +39,12 @@
         <input type="submit" value="Filter" /> <br />
     </p>
     }
-    </p>
-    <table class="table">
-        <tr>
+</p>
+
+
+
+    @*<table class="table table-hover">
+        <tr class="bg-info">
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -65,4 +89,16 @@
             </tr>
         }
 
-    </table>
+    </table>*@
+
+@foreach (var item in Model)
+{
+    <div class="blogBody">
+        <h3 class="myHeading"> @Html.DisplayFor(modelItem => item.Title, new { htmlAttributes = new { @class = "myHeading" } })</h3>
+        <p class="MyBody"><i>Published: @Html.DisplayFor(modelItem => item.PublishedDate) </i><strong>Rating: @Html.DisplayFor(modelItem => item.Rating)</strong></p>
+        <hr />
+        <p id="">@Html.DisplayFor(modelItem => item.Message)</p>
+
+        <br /><br />
+    </div>
+}

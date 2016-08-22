@@ -16,7 +16,7 @@ namespace Blog.Models
         public string Title { get; set;}
 
         [Display(Name = "Blog Message")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [RegularExpression(@"^[A-Z]+[\d\D]*$")]
         [Required]
         [StringLength(254)]
         public string Message { get; set; }
@@ -28,7 +28,7 @@ namespace Blog.Models
 
         [Display(Name = "Date of Blog")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime PublishedDate { get; set; }
     }
 
